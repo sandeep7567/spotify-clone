@@ -1,6 +1,6 @@
 "use client";
 
-import useSound from "use-sound";
+// import useSound from "use-sound";
 import { useEffect, useState } from "react";
 import { BsPauseFill, BsPlayFill } from "react-icons/bs";
 import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
@@ -12,7 +12,6 @@ import usePlayer from "@/hooks/usePlayer";
 import LikeButton from "./LikeButton";
 import MediaItem from "./MediaItem";
 import Slider from "./Slider";
-
 interface PlayerContentProps {
   song: Song;
   songUrl: string;
@@ -59,33 +58,33 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
     player.setId(previousSong);
   }
 
-  const [play, { pause, sound }] = useSound(
-    songUrl,
-    { 
-      volume: volume,
-      onplay: () => setIsPlaying(true),
-      onend: () => {
-        setIsPlaying(false);
-        onPlayNext();
-      },
-      onpause: () => setIsPlaying(false),
-      format: ['mp3']
-    }
-  );
+  // const [play, { pause, sound }] = useSound(
+  //   songUrl,
+  //   { 
+  //     volume: volume,
+  //     onplay: () => setIsPlaying(true),
+  //     onend: () => {
+  //       setIsPlaying(false);
+  //       onPlayNext();
+  //     },
+  //     onpause: () => setIsPlaying(false),
+  //     format: ['mp3']
+  //   }
+  // );
 
-  useEffect(() => {
-    sound?.play();
+  // useEffect(() => {
+  //   sound?.play();
     
-    return () => {
-      sound?.unload();
-    }
-  }, [sound]);
+  //   return () => {
+  //     sound?.unload();
+  //   }
+  // }, [sound]);
 
   const handlePlay = () => {
     if (!isPlaying) {
-      play();
+      // play();
     } else {
-      pause();
+      // pause();
     }
   }
 
@@ -125,7 +124,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
               items-center 
               justify-center 
               rounded-full 
-              bg-white
+              bg-white 
               p-1 
               cursor-pointer
             "
